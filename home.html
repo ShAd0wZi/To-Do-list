@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced To-Do List application with Pomodoro timer and GitHub integration">
+    <title>Advanced To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header role="banner">
+            <h1>To-Do List</h1>
+            <nav role="navigation" aria-label="App controls">
+                <button id="dark-mode-toggle" aria-label="Toggle dark mode">
+                    <span class="button-text">Toggle Dark Mode</span>
+                </button>
+                <button id="reset-app" aria-label="Reset application">
+                    <span class="button-text">Reset All</span>
+                </button>
+            </nav>
+        </header>
+
+        <main role="main">
+            <!-- Task Management Section -->
+            <section id="task-management" aria-labelledby="tasks-heading">
+                <h2 id="tasks-heading">My Tasks</h2>
+                <div class="filter-controls">
+                    <label for="task-filter">Filter Tasks:</label>
+                    <select id="task-filter" aria-label="Filter tasks by status">
+                        <option value="all">All Tasks</option>
+                        <option value="completed">Completed Tasks</option>
+                        <option value="pending">Pending Tasks</option>
+                        <option value="overdue">Overdue Tasks</option>
+                    </select>
+                    <div class="sort-controls">
+                        <label for="sort-tasks">Sort By:</label>
+                        <select id="sort-tasks" aria-label="Sort tasks">
+                            <option value="date-added">Date Added</option>
+                            <option value="due-date">Due Date</option>
+                            <option value="priority">Priority</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <ul id="tasks" role="list" aria-label="Task list"></ul>
+            </section>
+
+            <!-- Task Form Section -->
+            <section id="task-form" aria-labelledby="add-task-heading">
+                <h2 id="add-task-heading">Add New Task</h2>
+                <form id="new-task-form" aria-label="New task form">
+                    <div class="form-group">
+                        <label for="task-input">Task Description:</label>
+                        <input 
+                            type="text" 
+                            id="task-input" 
+                            placeholder="Enter task description" 
+                            required
+                            aria-required="true"
+                            minlength="3"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="due-date">Due Date:</label>
+                        <input 
+                            type="date" 
+                            id="due-date"
+                            aria-label="Task due date"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-priority">Priority:</label>
+                        <select id="task-priority" aria-label="Task priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="add-task-btn">Add Task</button>
+                </form>
+            </section>
+
+            <!-- Productivity Tools -->
+            <aside id="productivity-tools" aria-labelledby="tools-heading">
+                <h2 id="tools-heading">Productivity Tools</h2>
+                
+                <!-- Pomodoro Timer Section -->
+                <section id="pomodoro" aria-labelledby="pomodoro-heading">
+                    <h3 id="pomodoro-heading">Pomodoro Timer</h3>
+                    <div id="timer" role="timer" aria-live="polite">
+                        <output id="time" aria-label="Time remaining">25:00</output>
+                        <div class="timer-controls">
+                            <button id="start-timer">Start</button>
+                            <button id="pause-timer">Pause</button>
+                            <button id="reset-timer">Reset</button>
+                        </div>
+                        <div class="timer-settings">
+                            <label for="timer-duration">Session Duration (minutes):</label>
+                            <input type="number" id="timer-duration" min="1" max="60" value="25">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Code Snippet Integration Section -->
+                <section id="code-snippets" aria-labelledby="snippets-heading">
+                    <h3 id="snippets-heading">Code Snippets</h3>
+                    <div class="snippet-form">
+                        <label for="snippet-title">Snippet Title:</label>
+                        <input type="text" id="snippet-title" placeholder="Enter snippet title">
+                        
+                        <label for="code-input">Code:</label>
+                        <textarea 
+                            id="code-input" 
+                            placeholder="Enter code snippet here..." 
+                            rows="5"
+                            aria-label="Code snippet content"
+                        ></textarea>
+                        
+                        <label for="snippet-language">Language:</label>
+                        <select id="snippet-language">
+                            <option value="javascript">JavaScript</option>
+                            <option value="python">Python</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                        </select>
+                        
+                        <button id="save-snippet" type="button">Save Snippet</button>
+                    </div>
+                    <div id="saved-snippets" aria-label="Saved code snippets">
+                        <h4>Saved Snippets</h4>
+                        <ul id="snippet-list" role="list"></ul>
+                    </div>
+                </section>
+
+                <!-- GitHub Integration Section -->
+                <section id="github-integration" aria-labelledby="github-heading">
+                    <h3 id="github-heading">GitHub Integration</h3>
+                    <div class="github-controls">
+                        <label for="github-repo">Repository:</label>
+                        <input type="text" id="github-repo" placeholder="username/repository">
+                        <button id="fetch-github-issues" type="button">Fetch Issues</button>
+                    </div>
+                    <ul id="github-issues" role="list" aria-label="GitHub issues"></ul>
+                </section>
+            </aside>
+        </main>
+
+        <footer role="contentinfo">
+            <p>Task statistics: <span id="task-stats" aria-live="polite">0 total, 0 completed</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

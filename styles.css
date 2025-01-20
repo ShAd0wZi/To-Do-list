@@ -1,0 +1,294 @@
+/* Base Styles */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+}
+
+body.dark-mode {
+    background-color: #1a1b1e;
+    color: #e9ecef;
+}
+
+/* Layout Container */
+.app-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 16px;
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .app-container {
+    background-color: #25262b;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f1f3f5;
+}
+
+.dark-mode header {
+    border-bottom-color: #373838;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Main Content Layout */
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+/* Task Management Section */
+#task-management {
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode #task-management {
+    background-color: #2c2d32;
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, background-color 0.2s;
+    background-color: white;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+    background-color: #2c2d32;
+    color: white;
+    border-color: #373838;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #228be6;
+}
+
+.dark-mode input:focus,
+.dark-mode select:focus,
+.dark-mode textarea:focus {
+    border-color: #74c0fc;
+}
+
+/* Button Styles */
+button {
+    padding: 0.75rem 1.25rem;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #228be6;
+    color: white;
+    font-weight: 500;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover {
+    background-color: #1c7ed6;
+    transform: translateY(-1px);
+}
+
+/* Task List Styles */
+#tasks {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.dark-mode .task {
+    background-color: #2c2d32;
+}
+
+.task:hover {
+    transform: translateX(4px);
+}
+
+/* Productivity Tools Sidebar */
+#productivity-tools {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.dark-mode #productivity-tools {
+    background-color: #2c2d32;
+}
+
+/* Pomodoro Timer Styles */
+#pomodoro {
+    margin-bottom: 2rem;
+}
+
+#timer {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+#time {
+    display: block;
+    font-size: 3em;
+    font-weight: 700;
+    color: #228be6;
+    margin-bottom: 1rem;
+}
+
+.dark-mode #time {
+    color: #74c0fc;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.timer-settings {
+    margin-top: 1rem;
+}
+
+/* Code Snippets Section */
+#code-snippets {
+    margin-top: 2rem;
+}
+
+.snippet-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#snippet-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+/* GitHub Integration */
+#github-integration {
+    margin-top: 2rem;
+}
+
+.github-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#github-issues {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid #f1f3f5;
+    text-align: center;
+}
+
+.dark-mode footer {
+    border-top-color: #373838;
+}
+
+/* Task Stats */
+#task-stats {
+    font-weight: 500;
+    color: #228be6;
+}
+
+.dark-mode #task-stats {
+    color: #74c0fc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #time {
+        font-size: 2.5em;
+    }
+    
+    .app-container {
+        width: 95%;
+        padding: 1rem;
+    }
+}
+
+/* Utility Classes */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
